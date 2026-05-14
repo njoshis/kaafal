@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kaafal — From the Kumaon hills. Nothing else.</title>
+<title>Kaafal - From the Kumaon hills. Nothing else.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -50,16 +50,19 @@
   .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
     text-decoration: none;
   }
-  .logo-icon {
-    width: 32px; height: 32px;
-    flex-shrink: 0;
-  }
-  .logo-wordmark {
-    height: 22px;
+  .logo-main {
+    height: 44px;
     width: auto;
+  }
+  .footer-logo-icon {
+    height: 36px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+    margin-bottom: 20px;
+    display: block;
   }
   .nav-links {
     display: flex;
@@ -561,7 +564,7 @@
     border-bottom: 1px solid rgba(250,245,236,0.1);
   }
   .footer-brand p { font-size: 14px; line-height: 1.7; color: rgba(250,245,236,0.6); max-width: 300px; margin-top: 20px; }
-  .footer-logo { height: 28px; width: auto; filter: brightness(0) invert(1) opacity(0.9); }
+  .footer-brand p { margin-top: 16px; }
   footer h4 { font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; font-weight: 500; }
   footer ul { list-style: none; }
   footer ul li { margin-bottom: 12px; }
@@ -614,8 +617,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">
-    <img class="logo-icon" src="logo_icon_fill.svg" alt="Kaafal icon">
-    <img class="logo-wordmark" src="Logo_text.svg" alt="Kaafal">
+    <img class="logo-main" src="Logo_icon_text.svg" alt="Kaafal">
   </a>
   <ul class="nav-links">
     <li><a href="#shop">Shop</a></li>
@@ -632,23 +634,23 @@
 
     <div class="hero-meta">
       Kumaon, <span>Uttarakhand</span><br>
-      Raw · Single-Origin · NMR-Tested<br>
-      Batch No. <span>K-01</span>
+      Wild Himalayan Blossoms<br>
+      Batch No. <span>001</span>
     </div>
 
     <div class="hero-left">
-      <div class="eyebrow">Raw Honey · From the Kumaon hills</div>
+      <div class="eyebrow">Raw Honey · Single Origin</div>
       <h1 class="hero-title">
-        <span>From one</span>
-        <span class="italic">apiary.</span>
-        <span>Nothing else.</span>
+        <span>From the</span>
+        <span class="italic">Kumaon</span>
+        <span>hills.</span>
       </h1>
       <p class="hero-text">
-        Kaafal is a single-origin raw honey from the Kumaon hills of Uttarakhand. Named for the wild berry that grows only in these hills. NMR-tested every batch. The beekeeper's name is on the jar.
+        Kaafal is raw honey harvested from wild Himalayan blossoms in the forests of Kumaon. Small batch, unfiltered, and hand-bottled - nothing added, nothing taken away. The way the mountains intended it.
       </p>
       <div class="hero-actions">
         <a href="kaafal_product.html" class="btn btn-primary">
-          Shop Now
+          Shop the Collection
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
@@ -680,22 +682,22 @@
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span class="marquee-item">Single-Origin Kumaon</span>
-    <span class="marquee-item">NMR-Tested Every Batch</span>
-    <span class="marquee-item">Named Beekeeper</span>
-    <span class="marquee-item">Never Blended</span>
-    <span class="marquee-item">Raw & Unfiltered</span>
-    <span class="marquee-item">From the Kumaon Hills</span>
-    <span class="marquee-item">Nothing Hidden</span>
-    <span class="marquee-item">Glass Jar Always</span>
-    <span class="marquee-item">Single-Origin Kumaon</span>
-    <span class="marquee-item">NMR-Tested Every Batch</span>
-    <span class="marquee-item">Named Beekeeper</span>
-    <span class="marquee-item">Never Blended</span>
-    <span class="marquee-item">Raw & Unfiltered</span>
-    <span class="marquee-item">From the Kumaon Hills</span>
-    <span class="marquee-item">Nothing Hidden</span>
-    <span class="marquee-item">Glass Jar Always</span>
+    <span class="marquee-item">Raw &amp; Unfiltered</span>
+    <span class="marquee-item">Wild Himalayan Blossoms</span>
+    <span class="marquee-item">Hand-Bottled</span>
+    <span class="marquee-item">Single Origin</span>
+    <span class="marquee-item">Glass Only</span>
+    <span class="marquee-item">No Additives, No Preservatives</span>
+    <span class="marquee-item">Small Batch Harvested</span>
+    <span class="marquee-item">Kumaon, Uttarakhand</span>
+    <span class="marquee-item">Raw &amp; Unfiltered</span>
+    <span class="marquee-item">Wild Himalayan Blossoms</span>
+    <span class="marquee-item">Hand-Bottled</span>
+    <span class="marquee-item">Single Origin</span>
+    <span class="marquee-item">Glass Only</span>
+    <span class="marquee-item">No Additives, No Preservatives</span>
+    <span class="marquee-item">Small Batch Harvested</span>
+    <span class="marquee-item">Kumaon, Uttarakhand</span>
   </div>
 </div>
 
@@ -704,8 +706,8 @@
   <div class="container">
     <div class="section-head reveal">
       <div>
-        <div class="section-eyebrow">The Range</div>
-        <h2 class="section-title">Raw honey. <em>From one place.</em> Every jar.</h2>
+        <div class="section-eyebrow">The Collection</div>
+        <h2 class="section-title">Three honeys. <em>One mountain.</em> No shortcuts.</h2>
       </div>
       <a href="kaafal_product.html" class="section-link">View all →</a>
     </div>
@@ -717,16 +719,16 @@
         <div class="product-img">
           <span class="product-num">N° 01</span>
           <span class="product-tag">Bestseller</span>
-          <img class="product-jar" src="jar_transparent.png" alt="Kaafal Raw Honey 500ml">
+          <img class="product-jar" src="jar_transparent.png" alt="Kaafal Wildflower Honey 500g">
         </div>
         <div class="product-info">
           <div class="product-meta-row">
-            <h3 class="product-name">Family Pack</h3>
+            <h3 class="product-name">Wildflower Honey</h3>
             <span class="product-price">₹549</span>
           </div>
-          <p class="product-desc">Multifloral raw honey from the Kumaon hills. Single-origin, unblended. Every jar carries the harvest batch and apiary GPS.</p>
+          <p class="product-desc">From the wildflower meadows above 1,800m. Golden, complex, with notes of mountain herbs and a lingering floral sweetness.</p>
           <div class="product-cta">
-            <span class="product-notes">500g · Glass · NMR Tested</span>
+            <span class="product-notes">500g · Glass · Raw</span>
             <span class="add-btn" aria-label="View product">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </span>
@@ -738,16 +740,16 @@
       <a href="kaafal_product.html" class="product-card reveal">
         <div class="product-img">
           <span class="product-num">N° 02</span>
-          <img class="product-jar" src="jar_transparent.png" alt="Kaafal Everyday Hero 250ml">
+          <img class="product-jar" src="jar_transparent.png" alt="Kaafal Litchi Honey 500g">
         </div>
         <div class="product-info">
           <div class="product-meta-row">
-            <h3 class="product-name">Everyday Hero</h3>
-            <span class="product-price">₹349</span>
+            <h3 class="product-name">Litchi Honey</h3>
+            <span class="product-price">₹599</span>
           </div>
-          <p class="product-desc">The right size for daily use — in chai, on roti, by the spoonful. Eucalyptus or mustard harvest, seasonal availability.</p>
+          <p class="product-desc">Pale gold and intensely aromatic. Harvested during the brief litchi bloom in the foothills. Light, floral, with a gentle perfume that doesn't quit.</p>
           <div class="product-cta">
-            <span class="product-notes">250g · Glass · Single-Origin</span>
+            <span class="product-notes">500g · Glass · Raw</span>
             <span class="add-btn" aria-label="View product">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </span>
@@ -760,16 +762,16 @@
         <div class="product-img">
           <span class="product-num">N° 03</span>
           <span class="product-tag">Limited</span>
-          <img class="product-jar" src="jar_transparent.png" alt="Kaafal Gift Box">
+          <img class="product-jar" src="jar_transparent.png" alt="Kaafal Multifloral Reserve 500g">
         </div>
         <div class="product-info">
           <div class="product-meta-row">
-            <h3 class="product-name">Gift Box</h3>
+            <h3 class="product-name">Multifloral Reserve</h3>
             <span class="product-price">₹849</span>
           </div>
-          <p class="product-desc">Three 100g jars, three harvests — multifloral, eucalyptus, lychee. Named apiary, lab report QR on every jar. Diwali or year-round.</p>
+          <p class="product-desc">Our once-a-year batch. A complex blend of alpine blooms harvested across a single season. Dark, resinous, with notes of dried fruit and forest floor.</p>
           <div class="product-cta">
-            <span class="product-notes">3 × 100g · Gift-ready</span>
+            <span class="product-notes">500g · Glass · Limited</span>
             <span class="add-btn" aria-label="View product">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </span>
@@ -791,19 +793,19 @@
       </div>
 
       <div class="story-text reveal">
-        <div class="section-eyebrow">The Name</div>
-        <h2>Named for a berry <em>that only grows here.</em></h2>
-        <p>Kaafal (Myrica esculenta) is a wild berry that grows exclusively in the middle Himalayan belt - Kumaon, Garhwal, and nowhere else. It ripens in April on hillsides between 1,000 and 2,200 metres. Every Kumaoni knows the old folk song: "Kafal Pakyo Meel Nahin Chakyo." The kafal ripened but nobody was there to taste it.</p>
-        <p>The bees forage on kafal flowers in spring. The honey-to-plant connection is real, not manufactured. We named the brand for the berry because, like this honey, you can only get it if you know where to look.</p>
+        <div class="section-eyebrow">Our Story</div>
+        <h2>Born in the hills, <em>honest about it.</em></h2>
+        <p>Kaafal takes its name from the wild Kafal berry - a fruit that grows only in the Kumaon Himalayas and has no exact English translation. Like the berry, our honey belongs to a place. It doesn't travel well on paper. You have to taste it to understand.</p>
+        <p>We keep our hives in the Kumaon foothills - near Haldwani, moving up to Ramgarh when the apple orchards bloom. The hives follow the blossoms across the seasons. The harvest is coarse-strained at room temperature and bottled within the week. No heat. No blending. No additives. No preservatives. Every jar is a record of one season, one hillside.</p>
 
         <div class="story-stats">
           <div>
             <div class="stat-num">100+</div>
-            <div class="stat-label">Apis mellifera colonies</div>
+            <div class="stat-label">Hive Colonies</div>
           </div>
           <div>
-            <div class="stat-num">1,500m</div>
-            <div class="stat-label">Apiary altitude</div>
+            <div class="stat-num">40°</div>
+            <div class="stat-label">Max. Temperature</div>
           </div>
           <div>
             <div class="stat-num">0</div>
@@ -819,30 +821,30 @@
 <section class="process" id="process">
   <div class="container">
     <div class="reveal">
-      <div class="section-eyebrow">How it reaches you</div>
+      <div class="section-eyebrow">From Hive to Jar</div>
       <h2 class="section-title">Four steps, <em>and we stop there.</em></h2>
     </div>
 
     <div class="process-grid">
       <div class="process-step reveal">
-        <div class="process-num">01 - Kumaon</div>
-        <h3>One apiary</h3>
-        <p>All Kaafal honey comes from a single apiary in the Kumaon region of Uttarakhand. The GPS is on our website. We will never blend across regions or claim otherwise.</p>
+        <div class="process-num">01 - Forage</div>
+        <h3>Wild blossoms</h3>
+        <p>Our bees range across uncultivated Himalayan hillside - wildflower meadows, oak and rhododendron forest, litchi groves in the foothills. Each landscape leaves its signature on the honey.</p>
       </div>
       <div class="process-step reveal">
         <div class="process-num">02 - Harvest</div>
-        <h3>Raw extraction</h3>
-        <p>Honey is extracted by our named beekeeper and never heated above 40°C. Cold-extracted, minimally filtered - the pollen and natural enzymes stay intact.</p>
+        <h3>Once the comb is ready</h3>
+        <p>Frames are lifted only when fully capped. We never strip a hive bare. The bees always keep enough - everything we bottle is genuinely surplus.</p>
       </div>
       <div class="process-step reveal">
-        <div class="process-num">03 - Lab</div>
-        <h3>NMR tested</h3>
-        <p>Every batch is NMR-tested at an independent lab. The full report is published at kaafal.in and linked via QR code on every jar. In 2020, 77% of major honey brands failed this test.</p>
+        <div class="process-num">03 - Strain</div>
+        <h3>Cold &amp; coarse</h3>
+        <p>A single coarse strain at room temperature. Wax is removed, nothing else. Pollen, enzymes, and propolis all stay intact - the markers of real, raw honey.</p>
       </div>
       <div class="process-step reveal">
-        <div class="process-num">04 - Your table</div>
-        <h3>Glass, always</h3>
-        <p>Packed in glass jars with a gold metal lid. No plastic. No compromise on the container for a product that health-conscious buyers are trusting with their families.</p>
+        <div class="process-num">04 - Bottle</div>
+        <h3>Glass, by hand</h3>
+        <p>Each jar is filled, capped, and labelled by hand within days of harvest. No warehousing, no middlemen. What reaches you is as alive as what left the comb.</p>
       </div>
     </div>
   </div>
@@ -853,9 +855,9 @@
   <div class="container">
     <div class="reveal">
       <blockquote>
-        Not Himalayan. Kumaon specifically. There is a difference.
+        I've tasted honey from across India. Kaafal is the first one that made me stop and think - where has this been all my life? You taste the altitude in it.
       </blockquote>
-      <cite>Kaafal Brand Principle · <span>From the Kumaon hills. Nothing else.</span></cite>
+      <cite>Priya Kapoor · <span>Food &amp; Travel Writer, Condé Nast Traveller India</span></cite>
     </div>
   </div>
 </section>
@@ -864,10 +866,10 @@
 <section class="newsletter">
   <div class="container">
     <div class="newsletter-inner reveal">
-      <h2>First batch. <em>First to know.</em></h2>
-      <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Noted ✦';">
+      <h2>Letters from <em>the hills.</em></h2>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you ✦';">
         <input type="email" placeholder="your@email.com" required>
-        <button type="submit">Notify me →</button>
+        <button type="submit">Subscribe →</button>
       </form>
     </div>
   </div>
@@ -878,25 +880,25 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="Logo_icon_text.svg" alt="Kaafal">
-        <p>Raw honey from a single apiary in Kumaon, Uttarakhand. Named for the kafal berry that grows only in these hills. NMR-tested. Nothing hidden.</p>
+        <img class="footer-logo-icon" src="logo_icon_fill.svg" alt="Kaafal">
+        <p>Raw honey from the Kumaon hills of Uttarakhand. Small batch, hand-bottled, unfiltered - the way it grows at altitude.</p>
       </div>
       <div>
         <h4>Shop</h4>
         <ul>
-          <li><a href="kaafal_product.html">Family Pack 500g</a></li>
-          <li><a href="kaafal_product.html">Everyday Hero 250g</a></li>
-          <li><a href="kaafal_product.html">Trial Sampler 100g</a></li>
-          <li><a href="kaafal_product.html">Gift Box</a></li>
+          <li><a href="kaafal_product.html">Wildflower Honey</a></li>
+          <li><a href="kaafal_product.html">Litchi Honey</a></li>
+          <li><a href="kaafal_product.html">Multifloral Reserve</a></li>
+          <li><a href="kaafal_product.html">Gift Sets</a></li>
         </ul>
       </div>
       <div>
-        <h4>Brand</h4>
+        <h4>Kaafal</h4>
         <ul>
-          <li><a href="#story">The Kafal Story</a></li>
-          <li><a href="#process">Our Process</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#process">Process</a></li>
           <li><a href="#">The Apiary</a></li>
-          <li><a href="#">Lab Reports</a></li>
+          <li><a href="#">Stockists</a></li>
         </ul>
       </div>
       <div>
@@ -910,8 +912,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Kaafal · Kumaon, Uttarakhand · FSSAI Lic. 12623990000123</span>
-      <span>Raw · Single-Origin · NMR Tested</span>
+      <span>© 2026 Kaafal · Kumaon, Uttarakhand</span>
+      <span>Raw · Unfiltered · Single Origin</span>
     </div>
   </div>
 </footer>

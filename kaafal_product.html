@@ -35,9 +35,8 @@
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--line-soft);
   }
-  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .logo-icon { width: 32px; height: 32px; }
-  .logo-wordmark { height: 22px; width: auto; }
+  .logo { display: flex; align-items: center; text-decoration: none; }
+  .logo-main { height: 44px; width: auto; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
     font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
@@ -185,7 +184,7 @@
   footer { background: var(--ink); color: var(--base); padding: 80px 0 40px; position: relative; z-index: 3; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(250,245,236,0.1); }
   .footer-brand p { font-size: 14px; line-height: 1.7; color: rgba(250,245,236,0.6); max-width: 300px; margin-top: 20px; }
-  .footer-logo { height: 28px; width: auto; filter: brightness(0) invert(1) opacity(0.9); }
+  .footer-logo-icon { height: 36px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; margin-bottom: 20px; display: block; }
   footer h4 { font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; font-weight: 500; }
   footer ul { list-style: none; }
   footer ul li { margin-bottom: 12px; }
@@ -219,8 +218,7 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="logo">
-    <img class="logo-icon" src="logo_icon_fill.svg" alt="Kaafal icon">
-    <img class="logo-wordmark" src="Logo_text.svg" alt="Kaafal">
+    <img class="logo-main" src="Logo_icon_text.svg" alt="Kaafal">
   </a>
   <ul class="nav-links">
     <li><a href="index.html#shop">Shop</a></li>
@@ -495,7 +493,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="Logo_icon_text.svg" alt="Kaafal">
+        <img class="footer-logo-icon" src="logo_icon_fill.svg" alt="Kaafal">
         <p>Raw honey from a single apiary in Kumaon, Uttarakhand. Named for the kafal berry that grows only in these hills. NMR-tested. Nothing hidden.</p>
       </div>
       <div>

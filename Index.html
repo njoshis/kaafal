@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OakBee - Raw · Pure · Natural</title>
+<meta name="description" content="OakBee - premium raw honey from the forests of Kumaon, Uttarakhand. Raw, unfiltered, and gently harvested.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="OakBee - Raw · Pure · Natural">
+<meta property="og:description" content="Premium raw honey from the forests of Kumaon, Uttarakhand.">
+<meta property="og:image" content="Hero-image.png">
+<meta property="og:url" content="https://www.oakbee.in">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Allura&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   OAKBEE - Tokens
+   ============================================================ */
+:root{
+  --espresso:#2B1D18;
+  --cream:#F5F0E8;
+  --amber:#C98B2E;
+  --amber-hover:#B17912;
+  --moss:#6B7563;
+  --berry:#7A1F3D; /* limited edition (Wild Forest Reserve) */
+
+  --logo-amber:#885723;
+
+  --serif:'Cormorant Garamond', serif;
+  --sans:'Satoshi','Inter',sans-serif;
+  --script:'Allura', cursive;
+
+  --maxw:1100px;
+  --pad-section:108px;
+  --border-card:1px solid rgba(43,29,24,0.08);
+  --divider:1px solid rgba(107,117,99,0.3);
+  --border-nav:1px solid rgba(43,29,24,0.10);
+  --nav-h:86px;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;}
+[hidden]{display:none !important;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--espresso);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:var(--amber);text-decoration:none;}
+a:hover{text-decoration:underline;}
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  font-weight:600;
+  color:var(--espresso);
+  letter-spacing:0.02em;
+  margin:0;
+  line-height:1.15;
+}
+section[id]{scroll-margin-top:calc(var(--nav-h) + 12px);}
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+.section{padding:var(--pad-section) 0;}
+.ls-caps{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:0.2em;
+  font-weight:500;
+}
+.script{font-family:var(--script);color:var(--amber);font-weight:400;line-height:1;}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn{
+  display:inline-block;
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:14px;
+  letter-spacing:0.06em;
+  border-radius:4px;
+  cursor:pointer;
+  transition:background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+  text-decoration:none;
+}
+.btn:hover{text-decoration:none;}
+.btn-primary{
+  background:var(--amber);
+  color:var(--cream);
+  border:1.5px solid var(--amber);
+  padding:14px 32px;
+}
+.btn-primary:hover{background:var(--amber-hover);border-color:var(--amber-hover);color:var(--cream);}
+.btn-secondary{
+  background:transparent;
+  color:var(--espresso);
+  border:1.5px solid var(--espresso);
+  padding:12px 28px;
+}
+.btn-secondary:hover{background:var(--espresso);color:var(--cream);}
+.btn-ghost{
+  background:transparent;
+  color:var(--espresso);
+  border:1.5px solid rgba(43,29,24,0.25);
+  padding:11px 22px;
+  font-size:13px;
+  width:100%;
+  text-align:center;
+}
+.btn-ghost:hover{border-color:var(--espresso);background:transparent;color:var(--espresso);}
+.btn-sm{padding:10px 20px;font-size:13px;}
+
+/* ============================================================
+   Logo
+   ============================================================ */
+.ob-logo{color:var(--espresso);display:block;width:auto;}
+.ob-logo--light{color:var(--cream);}
+.ob-logo--nav{height:56px;}
+.ob-logo--footer{height:80px;margin:0 auto;}
+
+/* ============================================================
+   Reveal animation (fade-in + gentle rise)
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.is-visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1 !important;transform:none !important;transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,240,232,0.92);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:var(--border-nav);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-brand{display:inline-flex;align-items:center;}
+.nav-right{display:flex;align-items:center;gap:34px;}
+.nav-menu{display:flex;align-items:center;gap:34px;}
+.nav-link{
+  font-family:var(--sans);font-weight:500;font-size:13px;
+  text-transform:uppercase;letter-spacing:0.15em;
+  color:var(--espresso);text-decoration:none;position:relative;padding:4px 0;
+}
+.nav-link:hover{text-decoration:none;color:var(--espresso);}
+.nav-link.is-active{color:var(--amber);}
+.nav-link.is-active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--amber);
+}
+.nav-cta{white-space:nowrap;}
+.nav-toggle{
+  display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--espresso);
+}
+.nav-toggle svg{display:block;}
+
+/* ============================================================
+   Hero (split - image bleeds off the right edge)
+   ============================================================ */
+.hero{position:relative;overflow:hidden;}
+.hero::before{
+  content:"";position:absolute;top:-10%;right:-6%;width:55%;height:90%;
+  background:radial-gradient(circle at center, rgba(201,139,46,0.16), rgba(201,139,46,0) 65%);
+  pointer-events:none;z-index:0;
+}
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:var(--maxw);margin:0 auto;padding:64px 24px 72px;
+  min-height:calc(100vh - var(--nav-h));
+  display:flex;align-items:center;
+}
+.hero-text{max-width:520px;animation:obFadeIn .7s ease both;}
+@keyframes obFadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.hero-text{animation:none;}}
+.hero-eyebrow{
+  color:var(--moss);font-size:13px;font-weight:500;
+  text-transform:uppercase;letter-spacing:0.24em;margin-bottom:24px;
+}
+.hero-eyebrow .dot{color:var(--amber);}
+.hero h1{
+  font-size:clamp(2.5rem,5.4vw,4rem);
+  line-height:1.08;margin:0 0 22px;
+}
+.hero h1 .scripted{
+  font-family:var(--script);color:var(--amber);font-weight:400;
+  font-size:1.18em;display:inline-block;line-height:0.8;
+}
+.hero-lead{
+  color:var(--espresso);font-size:17px;line-height:1.85;
+  max-width:480px;margin:0 0 36px;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;}
+
+/* image: transparent, no frame/border/shadow, flush to the right edge */
+.hero-visual{
+  position:absolute;top:0;right:0;bottom:0;width:56%;
+  display:flex;align-items:center;justify-content:flex-end;
+  z-index:1;pointer-events:none;overflow:visible;
+}
+.hero-visual img{
+  height:100%;max-height:none;width:auto;max-width:none;
+  object-fit:contain;object-position:right center;
+}
+.hero-visual .placeholder{
+  display:none;width:80%;aspect-ratio:4/5;border-radius:6px;
+  align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--amber) 14%,var(--cream));
+  color:rgba(43,29,24,0.5);font-family:var(--sans);font-size:13px;letter-spacing:0.05em;
+}
+
+/* ============================================================
+   Section heading
+   ============================================================ */
+.section-head{text-align:center;max-width:720px;margin:0 auto 60px;}
+.section-head .script{font-size:clamp(2rem,4.4vw,2.75rem);margin-bottom:6px;}
+.section-head h2{font-size:clamp(1.85rem,4vw,2.5rem);}
+.section-head p{color:var(--moss);font-size:16px;line-height:1.8;margin:18px auto 0;max-width:560px;}
+
+/* ============================================================
+   Our Collection (products)
+   ============================================================ */
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+.product-card{
+  background:var(--cream);
+  border:var(--border-card);
+  border-radius:6px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 26px 46px -34px rgba(43,29,24,0.5);}
+.product-card .bar{height:4px;background:var(--accent);}
+.media{position:relative;aspect-ratio:1/1;background:color-mix(in srgb,var(--accent) 9%,var(--cream));display:flex;align-items:center;justify-content:center;}
+.media img{width:100%;height:100%;object-fit:cover;}
+.media .placeholder{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--accent) 22%,var(--cream));color:rgba(43,29,24,0.55);
+  font-family:var(--sans);font-size:13px;letter-spacing:0.05em;
+}
+.badge{
+  position:absolute;top:14px;left:14px;
+  font-family:var(--sans);font-size:10.5px;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;
+  padding:6px 11px;border-radius:100px;
+}
+.badge--in{background:var(--accent);color:var(--cream);}
+.badge--soon{background:rgba(43,29,24,0.06);color:var(--moss);border:1px solid rgba(43,29,24,0.12);}
+.product-body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1;}
+.product-body h3{color:var(--name);font-size:25px;margin-bottom:10px;}
+.product-body .desc{color:var(--espresso);font-size:14.5px;line-height:1.75;margin:0 0 22px;flex:1;}
+.product-price{
+  display:flex;align-items:baseline;gap:8px;margin-bottom:18px;
+  padding-top:16px;border-top:var(--divider);
+}
+.product-price .from{font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--moss);}
+.product-price .amount{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--espresso);}
+.product-price .unit{font-family:var(--sans);font-size:12px;color:var(--moss);margin-left:auto;}
+.product-card .btn-primary{width:100%;text-align:center;}
+
+/* ============================================================
+   Our Story
+   ============================================================ */
+.story-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:56px;align-items:center;}
+.story-visual .frame{
+  border-radius:6px;overflow:hidden;border:var(--border-card);
+  box-shadow:0 30px 60px -40px rgba(43,29,24,0.4);
+}
+.story-visual img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;}
+.story-visual .placeholder{
+  display:none;aspect-ratio:4/5;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--moss) 16%,var(--cream));
+  color:rgba(43,29,24,0.5);font-family:var(--sans);font-size:13px;letter-spacing:0.05em;
+}
+.story-copy .script{font-size:clamp(2rem,4.4vw,2.75rem);margin-bottom:2px;}
+.story-copy > h2{font-size:clamp(1.9rem,4vw,2.625rem);margin-bottom:14px;}
+.story-copy .lead{color:var(--moss);font-size:16px;line-height:1.85;margin:0 0 10px;}
+.narrative-block{padding:30px 0;border-bottom:var(--divider);}
+.narrative-block:last-child{border-bottom:0;padding-bottom:0;}
+.narrative-block h3{font-size:24px;margin-bottom:10px;}
+.narrative-block p{font-family:var(--sans);font-size:15px;line-height:1.85;margin:0;color:var(--espresso);}
+
+/* ============================================================
+   From Hive to Jar (process - dark)
+   ============================================================ */
+.process{background:var(--espresso);color:var(--cream);}
+.process .section-head .eyebrow{
+  color:var(--amber);font-size:13px;font-weight:500;
+  text-transform:uppercase;letter-spacing:0.24em;margin-bottom:14px;
+}
+.process .section-head h2{color:var(--cream);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;}
+.step{border-top:1px solid rgba(201,139,46,0.45);padding-top:22px;}
+.step .num{font-family:var(--serif);font-weight:600;font-size:46px;color:var(--amber);line-height:1;margin-bottom:14px;}
+.step h3{color:var(--cream);font-size:22px;margin-bottom:4px;}
+.step .step-sub{font-family:var(--script);color:var(--amber);font-size:24px;line-height:1;margin-bottom:16px;}
+.step p{font-family:var(--sans);font-size:14px;line-height:1.8;margin:0;color:rgba(245,240,232,0.74);}
+
+/* ============================================================
+   Testimonial (warm tinted band - divides it from Contact)
+   ============================================================ */
+.testimonial{
+  text-align:center;
+  background:color-mix(in srgb, var(--amber) 7%, var(--cream));
+  border-top:1px solid rgba(43,29,24,0.06);
+  border-bottom:1px solid rgba(43,29,24,0.06);
+}
+.testimonial .inner{max-width:840px;margin:0 auto;position:relative;}
+.testimonial .mark{
+  font-family:var(--serif);font-size:120px;line-height:0.6;color:var(--amber);
+  opacity:0.32;display:block;margin-bottom:-10px;
+}
+.testimonial .eyebrow{
+  color:var(--moss);font-size:12px;font-weight:500;
+  text-transform:uppercase;letter-spacing:0.24em;margin-bottom:16px;
+}
+.testimonial blockquote{
+  margin:0 auto;max-width:760px;
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:clamp(1.4rem,3.4vw,2.125rem);line-height:1.45;letter-spacing:0.01em;color:var(--espresso);
+}
+.testimonial .attrib{
+  margin-top:28px;font-family:var(--sans);font-size:13px;font-weight:500;
+  text-transform:uppercase;letter-spacing:0.16em;color:var(--moss);
+}
+.testimonial .attrib .name{color:var(--espresso);}
+
+/* ============================================================
+   Get in touch
+   ============================================================ */
+.contact{max-width:600px;margin:0 auto;text-align:center;}
+.contact .script{font-size:clamp(2rem,4.4vw,2.75rem);margin-bottom:4px;}
+.contact h2{font-size:clamp(2rem,4.5vw,2.875rem);margin-bottom:18px;}
+.contact .lead{color:var(--moss);font-size:16px;margin:0 0 38px;}
+.contact-actions{display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:34px;}
+.contact-actions .btn{min-width:240px;text-align:center;}
+.contact .email{font-family:var(--sans);font-size:14px;color:var(--espresso);margin:0 0 30px;}
+.contact .fssai{font-family:var(--sans);font-size:12px;color:var(--moss);margin:0;}
+
+/* ============================================================
+   Product detail page (Wildflower)
+   ============================================================ */
+.pdp{padding:44px 0 var(--pad-section);}
+.pdp-back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--moss);margin-bottom:36px;
+}
+.pdp-back:hover{color:var(--espresso);text-decoration:none;}
+.pdp-top{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+
+.pdp-gallery{position:sticky;top:calc(var(--nav-h) + 24px);}
+.pdp-main{
+  position:relative;border-radius:6px;overflow:hidden;aspect-ratio:1/1;
+  background:color-mix(in srgb,var(--amber) 9%,var(--cream));
+  display:flex;align-items:center;justify-content:center;
+}
+.pdp-main img{width:100%;height:100%;object-fit:cover;}
+.pdp-main .placeholder{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--amber) 18%,var(--cream));color:rgba(43,29,24,0.5);
+  font-family:var(--sans);font-size:13px;letter-spacing:0.05em;
+}
+.pdp-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px;}
+.pdp-thumb{
+  padding:0;border:1.5px solid transparent;border-radius:5px;overflow:hidden;cursor:pointer;
+  background:color-mix(in srgb,var(--amber) 9%,var(--cream));aspect-ratio:1/1;
+  transition:border-color .2s ease;
+}
+.pdp-thumb.is-active{border-color:var(--amber);}
+.pdp-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+
+.pdp-eyebrow{font-family:var(--sans);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--amber);margin:0 0 14px;}
+.pdp-info h1{font-size:clamp(2.2rem,4.6vw,3rem);margin:0 0 4px;}
+.pdp-tag{font-family:var(--script);font-size:clamp(1.7rem,3.4vw,2.2rem);color:var(--amber);line-height:1;margin:0 0 18px;}
+.pdp-price{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--espresso);margin:0 0 18px;}
+.pdp-chip{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--moss);border:1px solid rgba(43,29,24,0.14);border-radius:100px;padding:6px 14px;margin:0 0 22px;}
+.pdp-desc{font-family:var(--sans);font-size:15.5px;line-height:1.85;color:var(--espresso);margin:0 0 26px;}
+.pdp-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:22px 0;border-top:var(--divider);border-bottom:var(--divider);margin-bottom:28px;}
+.pdp-meta > div{display:flex;flex-direction:column;gap:4px;}
+.pdp-meta .k{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--moss);}
+.pdp-meta .v{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--espresso);}
+
+.field{margin-bottom:22px;}
+.field > label{display:block;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--moss);margin-bottom:10px;}
+.size-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.size-opt{
+  font-family:var(--sans);font-size:15px;font-weight:500;color:var(--espresso);
+  background:transparent;border:1.5px solid rgba(43,29,24,0.18);border-radius:5px;
+  padding:14px 16px;cursor:pointer;text-align:left;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:border-color .2s ease,background-color .2s ease;
+}
+.size-opt span{color:var(--moss);font-size:14px;}
+.size-opt.is-active{border-color:var(--amber);background:color-mix(in srgb,var(--amber) 8%,var(--cream));}
+.size-opt.is-active span{color:var(--amber);}
+.qty{display:inline-flex;align-items:center;border:1.5px solid rgba(43,29,24,0.18);border-radius:5px;overflow:hidden;}
+.qty-btn{width:44px;height:46px;background:transparent;border:0;cursor:pointer;font-size:20px;color:var(--espresso);font-family:var(--sans);line-height:1;}
+.qty-btn:hover{background:rgba(43,29,24,0.05);}
+.qty #pdp-qty{min-width:46px;text-align:center;font-family:var(--sans);font-size:16px;font-weight:500;}
+.pdp-cta{width:100%;text-align:center;margin-top:6px;}
+
+.pdp-details{max-width:760px;margin:72px auto 0;}
+.pdp-detail{padding:34px 0;border-top:var(--divider);}
+.pdp-detail:first-child{border-top:0;padding-top:0;}
+.pdp-detail h2{font-size:clamp(1.5rem,3vw,1.875rem);margin-bottom:14px;}
+.pdp-detail p{font-family:var(--sans);font-size:15px;line-height:1.85;color:var(--espresso);margin:0 0 14px;}
+.pdp-detail p:last-child{margin-bottom:0;}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer{background:var(--espresso);text-align:center;padding:64px 24px 48px;}
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:28px;margin:30px 0 24px;}
+.footer-nav a{
+  font-family:var(--sans);font-size:13px;letter-spacing:0.05em;
+  color:rgba(245,240,232,0.7);text-decoration:none;text-transform:uppercase;
+}
+.footer-nav a:hover{color:var(--cream);text-decoration:none;}
+.footer-meta{font-family:var(--sans);font-size:12px;color:rgba(245,240,232,0.6);line-height:1.9;}
+.footer-meta a{color:rgba(245,240,232,0.6);}
+.footer-meta a:hover{color:var(--cream);}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width:980px){
+  .hero-inner{min-height:auto;padding:44px 24px 8px;text-align:center;justify-content:center;}
+  .hero-text{margin:0 auto;max-width:560px;}
+  .hero-lead{margin-left:auto;margin-right:auto;}
+  .hero-cta{justify-content:center;}
+  .hero::before{display:none;}
+  .hero-visual{position:static;width:100%;height:auto;justify-content:center;padding:8px 24px 0;}
+  .hero-visual img{max-height:56vh;}
+  .hero-visual .placeholder{width:70%;margin:0 auto;}
+  .story-grid{grid-template-columns:1fr;gap:40px;}
+  .story-visual{max-width:460px;margin:0 auto;}
+}
+@media (max-width:860px){
+  .steps{grid-template-columns:repeat(2,1fr);gap:34px 28px;}
+  .pdp-top{grid-template-columns:1fr;gap:36px;}
+  .pdp-gallery{position:static;top:auto;max-width:460px;margin:0 auto;width:100%;}
+}
+@media (max-width:720px){
+  :root{--pad-section:64px;}
+  .products{grid-template-columns:1fr;gap:26px;}
+  .product-card{max-width:420px;margin:0 auto;width:100%;}
+  .steps{grid-template-columns:1fr;gap:30px;}
+  .pdp-meta{grid-template-columns:1fr;gap:14px;}
+
+  .ob-logo--nav{height:46px;}
+  .nav-cta{padding:9px 14px;font-size:12px;}
+  .nav-toggle{display:inline-flex;}
+  .nav-menu{
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:flex-start;gap:0;
+    background:var(--cream);border-bottom:var(--border-nav);
+    padding:6px 24px 14px;
+    display:none;
+  }
+  .nav-menu.is-open{display:flex;}
+  .nav-link{padding:13px 0;width:100%;}
+  .nav-link.is-active::after{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     LOGO DEFINITION (defined once, reused via <use>)
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="ob-logo-art">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="8" d="M244.01,278.13V127.35M205.77,168.78c9.16,10.89,22.9,17.81,38.24,17.81s29.08-6.92,38.24-17.81M244.05,72.11c-15.26,0-27.62,12.37-27.62,27.62s12.37,27.62,27.62,27.62,27.62-12.37,27.62-27.62-12.37-27.62-27.62-27.62ZM244.05,407.89c-15.26,0-27.62,12.37-27.62,27.62s12.37,27.62,27.62,27.62,27.62-12.37,27.62-27.62-12.37-27.62-27.62-27.62ZM301.86,434.05l142.61-82.33V120.32S244.07,4.62,244.07,4.62L43.67,120.32v231.4s142.6,82.33,142.6,82.33"/>
+      <circle fill="currentColor" cx="244.05" cy="99.73" r="8.04"/>
+      <circle fill="currentColor" cx="244.05" cy="435.51" r="8.04"/>
+      <path fill="currentColor" d="M402.01,162.73c-9.91-19.3-40.11-23.57-67.46-9.53-24.22,12.43-41.87,42.47-71.84,55.03-4.1,1.72-3.92,7.58.28,9.04,19.88,6.95,62.16,17.54,108.11,3.02,29.13-9.21,40.81-38.26,30.91-57.56Z"/>
+      <path fill="currentColor" d="M331.22,247.61c-16.12-13.86-39.61-14.56-50.69-14-3.53.18-6.19,3.27-5.83,6.79,1.11,11.04,5.34,34.16,21.46,48.01,21.75,18.69,47.24,24.72,56.92,13.45,9.68-11.27-.1-35.56-21.85-54.25Z"/>
+      <path fill="currentColor" d="M225.03,217.27c4.19-1.47,4.37-7.33.28-9.04-29.97-12.55-47.62-42.6-71.84-55.03-27.35-14.04-57.55-9.77-67.46,9.53-9.91,19.3,1.78,48.36,30.91,57.56,45.95,14.52,88.24,3.93,108.11-3.02Z"/>
+      <path fill="currentColor" d="M207.49,233.61c-11.08-.56-34.57.14-50.69,14-21.75,18.69-31.54,42.98-21.85,54.25s35.17,5.25,56.92-13.45c16.12-13.86,20.35-36.97,21.46-48.01.35-3.52-2.3-6.61-5.83-6.79Z"/>
+      <path fill="currentColor" d="M278.31,339.81h-68.48c2.44,6.95,5.77,13.21,9.42,18.68h49.64c3.65-5.47,6.98-11.73,9.42-18.68Z"/>
+      <path fill="currentColor" d="M282.31,316.76c0-1.31-.05-2.58-.12-3.83h-76.26c-.07,1.25-.12,2.51-.12,3.83,0,6.03.81,11.73,2.18,17.07h72.12c1.37-5.34,2.18-11.04,2.18-17.07Z"/>
+      <path fill="currentColor" d="M281.58,306.96c-3.46-22.14-18.94-31.88-37.51-31.88s-34.05,9.74-37.51,31.88h75.03Z"/>
+      <path fill="currentColor" d="M223.57,364.47c5.32,6.82,10.79,12.04,14.74,15.43,3.31,2.84,8.21,2.84,11.52,0,3.95-3.39,9.41-8.61,14.74-15.43h-41Z"/>
+      <text fill="currentColor" style="font-family:'Cormorant Garamond',serif;font-size:150px;font-weight:600" transform="translate(15.23 598.21)"><tspan x="0" y="0">OakB</tspan><tspan x="338.85" y="0">e</tspan><tspan x="400.04" y="0">e</tspan></text>
+      <text fill="#885723" style="font-family:'Satoshi','Inter',sans-serif;font-size:32px;font-weight:500" transform="translate(0 657.02)"><tspan style="letter-spacing:.2em" x="0" y="0">R</tspan><tspan style="letter-spacing:.13em" x="27.33" y="0">A</tspan><tspan style="letter-spacing:.2em" x="52.54" y="0">W</tspan></text>
+      <circle fill="#885723" cx="116.52" cy="644.88" r="5.76"/>
+      <text fill="#885723" style="font-family:'Satoshi','Inter',sans-serif;font-size:32px;font-weight:500;letter-spacing:.2em" transform="translate(148.46 657.02)"><tspan x="0" y="0">PURE</tspan></text>
+      <circle fill="#885723" cx="283.31" cy="644.88" r="5.76"/>
+      <text fill="#885723" style="font-family:'Satoshi','Inter',sans-serif;font-size:32px;font-weight:500" transform="translate(314.52 657.02)"><tspan style="letter-spacing:.2em" x="0" y="0">N</tspan><tspan style="letter-spacing:.14em" x="29.89" y="0">A</tspan><tspan style="letter-spacing:.2em" x="55.39" y="0">TURAL</tspan></text>
+    </g>
+  </defs>
+</svg>
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand" aria-label="OakBee - home">
+      <svg class="ob-logo ob-logo--nav" viewBox="0 0 495.06 664.47" role="img" aria-label="OakBee"><use href="#ob-logo-art"/></svg>
+    </a>
+    <div class="nav-right">
+      <nav class="nav-menu" id="nav-menu">
+        <a class="nav-link" data-target="collection" href="#collection">Collection</a>
+        <a class="nav-link" data-target="story" href="#story">Our Story</a>
+        <a class="nav-link" data-target="process" href="#process">Process</a>
+        <a class="nav-link" data-target="contact" href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary btn-sm nav-cta" href="https://wa.me/919971637812?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Kaafal%20honey%20and%20place%20an%20order.">Order on WhatsApp</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <line x1="3" y1="8" x2="23" y2="8"/><line x1="3" y1="13" x2="23" y2="13"/><line x1="3" y1="18" x2="23" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- =========================================================
+     HOME
+     ========================================================= -->
+<main id="home-main">
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">RAW <span class="dot">·</span> PURE <span class="dot">·</span> NATURAL</p>
+        <h1>Raw honey from the forests of <span class="scripted">Kumaon</span></h1>
+        <p class="hero-lead">Gathered by free-roaming bees across the untouched Himalayan hillsides of Uttarakhand. Cold-strained, never heated, and bottled by hand - exactly as the forest intended.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#collection">Shop the Collection</a>
+          <a class="btn btn-secondary" href="#story">Our Story</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="Hero-image.png" alt="OakBee raw honey from the forests of Kumaon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="placeholder">Hero-image.png</div>
+    </div>
+  </section>
+
+  <!-- OUR COLLECTION -->
+  <section class="section" id="collection">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="script">Our Collection</p>
+        <h2>Three honeys, one forest</h2>
+        <p>Each jar is raw, unfiltered, and harvested from the forests of Kumaon. No additives. No shortcuts. No heat.</p>
+      </div>
+
+      <div class="products">
+
+        <!-- Wildflower (available - opens product page) -->
+        <article class="product-card reveal" style="--accent:#B38A3A;--name:#5F6B57;">
+          <span class="bar"></span>
+          <div class="media">
+            <span class="badge badge--in">In stock</span>
+            <img src="p1.png" alt="OakBee Wildflower Honey jar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="placeholder">p1.png</div>
+          </div>
+          <div class="product-body">
+            <h3>Wildflower Honey</h3>
+            <p class="desc">From the wildflower meadows of Kumaon. Golden, complex, with notes of mountain herbs and a lingering floral sweetness.</p>
+            <div class="product-price">
+              <span class="from">Starts from</span>
+              <span class="amount">₹449</span>
+              <span class="unit">500 g jar</span>
+            </div>
+            <a class="btn btn-primary" href="#product-wildflower">View product</a>
+          </div>
+        </article>
+
+        <!-- Litchi (notify when available) -->
+        <article class="product-card reveal" style="--accent:#D6BE8A;--name:#C58A1C;">
+          <span class="bar"></span>
+          <div class="media">
+            <span class="badge badge--soon">Seasonal · coming soon</span>
+            <img src="p2.png" alt="OakBee Litchi Honey jar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="placeholder">p2.png</div>
+          </div>
+          <div class="product-body">
+            <h3>Litchi Honey</h3>
+            <p class="desc">Pale gold and intensely aromatic. Harvested during the brief litchi bloom in the foothills. Light, floral, with a gentle perfume that doesn't quit.</p>
+            <div class="product-price">
+              <span class="from">Starts from</span>
+              <span class="amount">₹450</span>
+              <span class="unit">500 g jar</span>
+            </div>
+            <a class="btn btn-ghost" href="mailto:hello@oakbee.in?subject=Notify%20me%20%E2%80%94%20Litchi%20Honey">Notify when available</a>
+          </div>
+        </article>
+
+        <!-- Wild Forest Reserve (limited, notify when available) -->
+        <article class="product-card reveal" style="--accent:#7A1F3D;--name:#7A1F3D;">
+          <span class="bar"></span>
+          <div class="media">
+            <span class="badge badge--soon">Limited · once a year</span>
+            <img src="p3.png" alt="OakBee Multiflora Honey jar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="placeholder">p3.png</div>
+          </div>
+          <div class="product-body">
+            <h3>Multiflora Honey</h3>
+            <p class="desc">Our once-a-year batch. A complex blend of alpine blooms harvested across a single season. Dark, resinous, with notes of dried fruit and forest floor.</p>
+            <div class="product-price">
+              <span class="from">Starts from</span>
+              <span class="amount">₹450</span>
+              <span class="unit">500 g jar</span>
+            </div>
+            <a class="btn btn-ghost" href="mailto:hello@oakbee.in?subject=Notify%20me%20%E2%80%94%20Multiflora%20Honey">Notify when available</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="section story" id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-visual reveal">
+          <div class="frame">
+            <img src="story.png" alt="The forests of Kumaon where OakBee honey begins" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="placeholder">story.png</div>
+          </div>
+        </div>
+        <div class="story-copy reveal">
+          <p class="script">Rooted in nature</p>
+          <h2>Where the bees lead, we follow</h2>
+          <p class="lead">OakBee begins in the forests of Kumaon - where bees have always known the best flowers.</p>
+
+          <div class="narrative-block">
+            <h3>The forests of Kumaon</h3>
+            <p>The forests of Kumaon are among the most biodiverse landscapes in the Himalayan foothills. Untouched by industrial agriculture, these forests sustain thousands of flowering species across seasons - rhododendron, wild berry, forest oak, and more. It is here that OakBee honey begins.</p>
+          </div>
+          <div class="narrative-block">
+            <h3>How we harvest</h3>
+            <p>Our bees forage freely - moving with the seasons, following the blooms. The honey is harvested with care, filtered gently to remove debris while preserving every bit of pollen, enzyme, and natural goodness. No heat. No additives. Nothing removed that should not be.</p>
+          </div>
+          <div class="narrative-block">
+            <h3>What we believe about honey</h3>
+            <p>The crystallisation in your jar, the colour that shifts with the season, the slight variation in taste from batch to batch - these are not imperfections. They are the truth of real honey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FROM HIVE TO JAR -->
+  <section class="section process" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">From Hive to Jar</p>
+        <h2>Four steps, and we stop there</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="num">01</div>
+          <h3>Forage</h3>
+          <p class="step-sub">Wild blossoms</p>
+          <p>Our bees range across uncultivated Himalayan hillside - wildflower meadows, oak and rhododendron forest, litchi groves in the foothills. Each landscape leaves its signature on the honey.</p>
+        </div>
+        <div class="step reveal">
+          <div class="num">02</div>
+          <h3>Harvest</h3>
+          <p class="step-sub">Once the comb is ready</p>
+          <p>Frames are lifted only when fully capped. We never strip a hive bare. The bees always keep enough - everything we bottle is genuinely surplus.</p>
+        </div>
+        <div class="step reveal">
+          <div class="num">03</div>
+          <h3>Strain</h3>
+          <p class="step-sub">Cold &amp; coarse</p>
+          <p>A single coarse strain at room temperature. Wax is removed, nothing else. Pollen, enzymes, and propolis all stay intact - the markers of real, raw honey.</p>
+        </div>
+        <div class="step reveal">
+          <div class="num">04</div>
+          <h3>Bottle</h3>
+          <p class="step-sub">Glass, by hand</p>
+          <p>Each jar is filled, capped, and labelled by hand within days of harvest. No warehousing, no middlemen. What reaches you is as alive as what left the comb.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL (not in nav) -->
+  <section class="section testimonial" id="testimonial">
+    <div class="container">
+      <div class="inner reveal">
+        <span class="mark" aria-hidden="true">&ldquo;</span>
+        <p class="eyebrow">In their words</p>
+        <blockquote>I grew up on honey from my grandfather's village, and OakBee is the first jar in years that tastes like I remember - alive, a little wild, and never quite the same twice.</blockquote>
+        <p class="attrib"><span class="name">Sachin</span> &nbsp;·&nbsp; Delhi</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET IN TOUCH -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact reveal">
+        <p class="script">Say hello</p>
+        <h2>Get in touch</h2>
+        <p class="lead">For orders, bulk enquiries, or gifting - reach us directly. We respond quickly.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://wa.me/919971637812?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Kaafal%20honey%20and%20place%20an%20order.">Chat on WhatsApp</a>
+          <a class="btn btn-secondary" href="https://ig.me/m/oakbeehoney">DM on Instagram</a>
+        </div>
+        <p class="email">hello@oakbee.in</p>
+        <p class="fssai">FSSAI Lic. No.: [ADD LICENCE NUMBER]</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     PRODUCT DETAIL - Wildflower Honey
+     ========================================================= -->
+<main id="product-wildflower" hidden>
+  <div class="pdp">
+    <div class="container">
+      <a class="pdp-back" href="#collection">&larr; Back to collection</a>
+
+      <div class="pdp-top">
+        <!-- Gallery -->
+        <div class="pdp-gallery">
+          <div class="pdp-main">
+            <img id="pdp-main-img" src="p1.png" alt="Kaafal Wildflower Honey">
+            <div class="placeholder" id="pdp-main-ph">p1.png</div>
+          </div>
+          <div class="pdp-thumbs">
+            <button class="pdp-thumb is-active" data-full="p1.png" aria-label="View image 1">
+              <img src="p1.png" alt="" onerror="this.style.opacity=0;">
+            </button>
+            <button class="pdp-thumb" data-full="p1-2.png" aria-label="View image 2">
+              <img src="p1-2.png" alt="" onerror="this.style.opacity=0;">
+            </button>
+            <button class="pdp-thumb" data-full="p1-3.png" aria-label="View image 3">
+              <img src="p1-3.png" alt="" onerror="this.style.opacity=0;">
+            </button>
+            <button class="pdp-thumb" data-full="p1-4.png" aria-label="View image 4">
+              <img src="p1-4.png" alt="" onerror="this.style.opacity=0;">
+            </button>
+          </div>
+        </div>
+
+        <!-- Info / buy -->
+        <div class="pdp-info">
+          <p class="pdp-eyebrow">Kaafal · Single-origin raw honey</p>
+          <h1>Wildflower Honey</h1>
+          <p class="pdp-tag">From the Kumaon hills. Nothing else.</p>
+          <p class="pdp-price"><span id="pdp-price">₹449</span></p>
+          <p class="pdp-chip">Single-origin · Kumaon Hills</p>
+          <p class="pdp-desc">Raw honey from our apiary in the Kumaon hills of Uttarakhand. Cold-extracted, never heated above 40&deg;C. The pollen, enzymes, and natural goodness stay intact. Small batch, hand-bottled, unfiltered.</p>
+
+          <div class="pdp-meta">
+            <div><span class="k">Apiary</span><span class="v">Kumaon Hills</span></div>
+            <div><span class="k">Harvest</span><span class="v">March 2026</span></div>
+            <div><span class="k">Batch</span><span class="v">K-01</span></div>
+          </div>
+
+          <div class="field">
+            <label>Size</label>
+            <div class="size-opts">
+              <button class="size-opt is-active" data-price="449" data-label="500 g">500 g <span>₹449</span></button>
+              <button class="size-opt" data-price="849" data-label="1 kg">1 kg <span>₹849</span></button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Quantity</label>
+            <div class="qty">
+              <button class="qty-btn" data-step="-1" aria-label="Decrease quantity">&minus;</button>
+              <span id="pdp-qty">1</span>
+              <button class="qty-btn" data-step="1" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <a class="btn btn-primary pdp-cta" id="pdp-cta" href="https://wa.me/919971637812">Order on WhatsApp · ₹449</a>
+        </div>
+      </div>
+
+      <!-- Long-form details -->
+      <div class="pdp-details">
+        <div class="pdp-detail">
+          <h2>About this honey</h2>
+          <p>Kaafal Wildflower Honey is a raw multifloral honey from a single apiary in the Kumaon region of Uttarakhand. The bees forage on wildflowers, eucalyptus, and seasonal flora from the surrounding hill forest range.</p>
+          <p>Every jar carries the batch number, harvest month, and a QR code for that batch. Hand-bottled within the week of harvest. No heat, no blending, no additives.</p>
+        </div>
+        <div class="pdp-detail">
+          <h2>Tasting Notes</h2>
+          <p>Warm and floral with mild woody undertones. Natural sweetness without the sharp sugar edge of processed honey. Slightly thick in consistency, with a warm amber colour that lightens as it crystallises.</p>
+          <p>Raw honey naturally crystallises over time - this is a sign of quality, not spoilage. Place the jar in warm water (under 40&deg;C) to return it to liquid without damaging any nutrients.</p>
+        </div>
+        <div class="pdp-detail">
+          <h2>Origin &amp; Harvest</h2>
+          <p>Our hives are migratory - they move with the seasons across the Kumaon foothills and the surrounding hill forest range, following the bloom cycle. Each location shapes the character of the honey from that harvest window.</p>
+          <p>The Kumaon harvest happens March through May, when the hills are in full blossom. This is the wildflower and multifloral window - dozens of hill species all contributing to the hive at the same time.</p>
+        </div>
+        <div class="pdp-detail">
+          <h2>Shipping &amp; Returns</h2>
+          <p>Free shipping on all orders - for a limited time. Standard delivery in 3–6 business days across India. Glass jars are packed carefully with bubble wrap and corrugated boxing. If your jar arrives damaged, we replace it, no questions asked.</p>
+          <p>Returns accepted within 7 days for unopened jars. If anything is wrong with the product itself, message us directly on WhatsApp and we will sort it out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="footer">
+  <svg class="ob-logo ob-logo--light ob-logo--footer" viewBox="0 0 495.06 664.47" role="img" aria-label="OakBee"><use href="#ob-logo-art"/></svg>
+  <nav class="footer-nav">
+    <a href="#home">Home</a>
+    <a href="#collection">Collection</a>
+    <a href="#story">Our Story</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <p class="footer-meta">
+    Instagram: <a href="https://instagram.com/oakbeehoney">@oakbeehoney</a><br>
+    FSSAI Lic. No.: [ADD LICENCE NUMBER]<br>
+    © OakBee. All rights reserved.
+  </p>
+</footer>
+
+<!-- =========================================================
+     SCRIPT - routing, gallery, buy widget, reveal, menu
+     ========================================================= -->
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var navMenu = document.getElementById('nav-menu');
+  var navToggle = document.querySelector('.nav-toggle');
+  var homeMain = document.getElementById('home-main');
+  var productMain = document.getElementById('product-wildflower');
+  var PRODUCT_HASH = '#product-wildflower';
+  var wasProduct = false;
+
+  /* Mobile menu */
+  function closeMenu(){ navMenu.classList.remove('is-open'); navToggle.setAttribute('aria-expanded','false'); }
+  navToggle.addEventListener('click', function(){
+    var open = navMenu.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navMenu.addEventListener('click', function(e){ if(e.target.closest('.nav-link')) closeMenu(); });
+
+  /* Reveal on scroll */
+  var revealIO = null;
+  function observeReveals(){
+    var els = document.querySelectorAll('.reveal:not(.is-visible)');
+    if(reduce || !('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('is-visible'); }); return; }
+    if(!revealIO){
+      revealIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('is-visible'); revealIO.unobserve(en.target); } });
+      }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    }
+    els.forEach(function(e){ revealIO.observe(e); });
+  }
+
+  /* Scrollspy */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+  var sections = links.map(function(l){ return document.getElementById(l.getAttribute('data-target')); }).filter(Boolean);
+  if('IntersectionObserver' in window && sections.length){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var id = en.target.id;
+          links.forEach(function(l){ l.classList.toggle('is-active', l.getAttribute('data-target') === id); });
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(function(s){ spy.observe(s); });
+  }
+
+  /* Routing: home <-> product page */
+  function route(){
+    var isProduct = location.hash === PRODUCT_HASH;
+    homeMain.hidden = isProduct;
+    productMain.hidden = !isProduct;
+    if(isProduct){
+      window.scrollTo(0,0);
+      productMain.querySelectorAll('.reveal').forEach(function(e){ e.classList.add('is-visible'); });
+    } else {
+      if(wasProduct){
+        window.scrollTo(0,0);
+        var id = location.hash.slice(1);
+        var el = id && document.getElementById(id);
+        if(el){ el.scrollIntoView(); }
+      }
+      observeReveals();
+    }
+    closeMenu();
+    wasProduct = isProduct;
+  }
+  window.addEventListener('hashchange', route);
+
+  /* Gallery */
+  var mainImg = document.getElementById('pdp-main-img');
+  var mainPh = document.getElementById('pdp-main-ph');
+  if(mainImg){
+    mainImg.addEventListener('error', function(){ mainImg.style.display='none'; mainPh.style.display='flex'; });
+    document.querySelectorAll('.pdp-thumb').forEach(function(t){
+      t.addEventListener('click', function(){
+        document.querySelectorAll('.pdp-thumb').forEach(function(x){ x.classList.remove('is-active'); });
+        t.classList.add('is-active');
+        mainPh.textContent = t.getAttribute('data-full');
+        mainImg.style.display='';
+        mainImg.src = t.getAttribute('data-full');
+      });
+    });
+  }
+
+  /* Buy widget: size + quantity + WhatsApp link */
+  var sizeOpts = Array.prototype.slice.call(document.querySelectorAll('.size-opt'));
+  var qtyEl = document.getElementById('pdp-qty');
+  var priceEl = document.getElementById('pdp-price');
+  var cta = document.getElementById('pdp-cta');
+  var PHONE = '919971637812';
+  var sel = 0, qty = 1;
+  function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
+  function update(){
+    if(!sizeOpts.length) return;
+    var unit = parseInt(sizeOpts[sel].getAttribute('data-price'), 10);
+    var label = sizeOpts[sel].getAttribute('data-label');
+    var total = unit * qty;
+    if(priceEl) priceEl.textContent = fmt(unit);
+    if(qtyEl) qtyEl.textContent = qty;
+    if(cta){
+      cta.textContent = 'Order on WhatsApp · ' + fmt(total);
+      var msg = "Hi! I'd like to order Kaafal Wildflower Honey.\nSize: " + label + "\nQuantity: " + qty + " jar" + (qty > 1 ? 's' : '') + "\nTotal: " + fmt(total) + "\nPlease confirm availability and share payment details.";
+      cta.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg);
+    }
+  }
+  sizeOpts.forEach(function(o,i){
+    o.addEventListener('click', function(){
+      sizeOpts.forEach(function(x){ x.classList.remove('is-active'); });
+      o.classList.add('is-active'); sel = i; update();
+    });
+  });
+  document.querySelectorAll('.qty-btn').forEach(function(b){
+    b.addEventListener('click', function(){
+      qty = Math.max(1, qty + parseInt(b.getAttribute('data-step'), 10)); update();
+    });
+  });
+  update();
+
+  /* Init */
+  observeReveals();
+  route();
+})();
+</script>
+
+</body>
+</html>
